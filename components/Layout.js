@@ -1,5 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import Head from "next/head";
+import Router from "next/router";
+import nProgress from "nprogress";
+
+Router.onRouteChangeStart = url => {
+  console.log(url);
+  nProgress.start();
+};
+Router.onRouteChangeComplete = () => nProgress.done();
+Router.onRouteChangeError = () => nProgress.done();
 const Layout = ({ children, title }) => {
   return (
     <div
@@ -10,6 +20,15 @@ const Layout = ({ children, title }) => {
         flexDirection: "column"
       }}
     >
+      <Head>
+        <title>nextPortForlio</title>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+          integrity="sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ=="
+          crossorigin="anonymous"
+        />
+      </Head>
       <header
         style={{
           width: "100%",
