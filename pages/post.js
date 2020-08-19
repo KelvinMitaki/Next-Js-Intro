@@ -1,9 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { withRouter } from "next/router";
 
-const post = () => {
+const post = props => {
   return (
-    <Layout>
+    <Layout title={props.router.query.title}>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos
         incidunt obcaecati consectetur maiores rem sunt itaque, libero ex magni
@@ -16,4 +17,4 @@ const post = () => {
   );
 };
 
-export default post;
+export default withRouter(post);
