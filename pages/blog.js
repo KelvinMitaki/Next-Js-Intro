@@ -6,7 +6,7 @@ const PostLink = ({ title }) => {
   return (
     <div>
       <li>
-        <Link href={`/post?title=${title}`}>
+        <Link as={`/${title}`} href={`/post?title=${title}`}>
           <a>{title} Post</a>
         </Link>
       </li>
